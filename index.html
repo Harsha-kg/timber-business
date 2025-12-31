@@ -1,0 +1,217 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>Kaveti Ranganatha Timbers — Business Portfolio</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+
+<body>
+  <header>
+    <div class="container">
+      <nav>
+        <div class="brand">
+          <div class="logo"><img src="https://www.shutterstock.com/image-vector/wood-logo-vector-illustration-carpentry-600nw-2486065263.jpg " width="50"></div>
+          <div class="brand-text">
+            <strong>Kaveti Ranganatha Timbers</strong>
+            <div class="tag">Quality timber & wood products</div>
+          </div>
+        </div>
+        <div class="navlinks">
+          <a href="#intro">Introduction</a>
+          <a href="#products">Products</a>
+          <a href="#calculator">Cost Calculator</a>
+          <a href="#contact">Contact</a>
+          <a href="#feedback">Feedback</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main class="container">
+    <!-- INTRO -->
+    <section id="intro" class="hero card">
+      <div class="hero-left">
+        <h1>Welcome to Kaveti Ranganatha Timbers</h1>
+        <p class="lead">Sustainably sourced timber for construction, furniture makers, and DIY enthusiasts. Family-owned
+          since 1998 — dependable delivery, competitive pricing, and expert advice.</p>
+
+        <div class="features">
+          <div class="feature"><strong>Wide Variety</strong>
+            <p>Hardwoods, softwoods, treated and untreated planks.</p>
+          </div>
+          <div class="feature"><strong>Bulk Supply</strong>
+            <p>Large inventory for commercial projects.</p>
+          </div>
+          <div class="feature"><strong>Sustainable</strong>
+            <p>Sourced from certified forests.</p>
+          </div>
+        </div>
+      </div>
+
+      <aside class="hero-right card-stats">
+        <h3>Quick Stats</h3>
+        <ul>
+          <li><strong>25+</strong> Years in business</li>
+          <li><strong>1500+</strong> Projects supplied</li>
+          <li><strong>Nationwide</strong> delivery</li>
+        </ul>
+      </aside>
+    </section>
+
+    <!-- PRODUCTS -->
+    <section id="products" class="card">
+      <h2>Our Products</h2>
+      <p class="lead">Choose timber by type. Enter quantities to add them to the cost calculator.</p>
+
+      <div id="productsGrid" class="products-grid">
+        <!-- injected by JS -->
+      </div>
+    </section>
+
+    <!-- CALCULATOR -->
+    <section id="calculator" class="card">
+      <h2>Cost Calculation</h2>
+
+      <div class="calc-grid">
+        <div class="calc-left">
+          <div class="row">
+            <div class="muted">Selected items</div>
+            <div id="subtotal" class="total">Subtotal: ₹0.00</div>
+          </div>
+
+          <div id="selectedItems" class="selected-items">
+            <p class="muted">No items selected yet.</p>
+          </div>
+
+          <div class="row">
+            <label for="transport">Transport (flat)</label>
+            <select id="transport">
+              <option value="0">No transport (pickup)</option>
+              <option value="500">Local delivery - ₹500</option>
+              <option value="1500">Regional delivery - ₹1,500</option>
+            </select>
+          </div>
+
+          <div class="row">
+            <label for="gst">Apply GST (18%)</label>
+            <input type="checkbox" id="gst" />
+          </div>
+
+          <div class="row actions">
+            <button class="btn" id="calculateBtn">Calculate Total</button>
+            <button class="btn secondary" id="clearCart">Clear Items</button>
+          </div>
+
+          <div class="row">
+            <strong>Total:</strong>
+            <div id="grandTotal" class="grand">₹0.00</div>
+          </div>
+        </div>
+
+        <aside class="calc-right card">
+          <h3>What you have to take</h3>
+          <p class="muted">This lists the products you've added to the calculator with quantity and line totals.</p>
+          <div id="whatToTake" class="what-to-take">
+            <p class="muted">No items yet.</p>
+          </div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- CONTACT -->
+    <section id="contact" class="card">
+      <h2>Contact Information</h2>
+      <p class="lead">Reach out for quotes, bulk orders, or site visits.</p>
+
+      <div class="contact-grid">
+        <form id="contactForm" class="contact-form">
+          <div class="two-cols">
+            <div>
+              <label for="name">Full name *</label>
+              <input id="name" required />
+            </div>
+            <div>
+              <label for="phone">Phone *</label>
+              <input id="phone" required pattern="\d{10}" placeholder="10 digit" />
+            </div>
+          </div>
+
+          <div>
+            <label for="email">Email *</label>
+            <input id="email" type="email" required />
+          </div>
+
+          <div>
+            <label for="message">Message</label>
+            <textarea id="message"></textarea>
+          </div>
+
+          <div class="form-actions">
+            <button class="btn" type="submit">Send Message</button>
+            <div id="contactMsg" class="muted"></div>
+          </div>
+        </form>
+
+        <aside class="contact-aside">
+          <div class="visit"><strong>Visit Us</strong>
+            <div class="muted small">Kaveti Ranganatha Timbers, B M road, Kadabhalli, Mandya(d) PIN 571448</div>
+          </div>
+
+          <div class="muted small"><strong>Phone:</strong> +91
+            7795536075<br /><strong>Email:</strong>gowdaharsha198@gmail.com</div>
+
+          <div class="map-placeholder">Map placeholder (embed Google Maps in production)</div>
+        </aside>
+      </div>
+    </section>
+
+    <!-- FEEDBACK -->
+    <section id="feedback" class="card">
+      <h2>Feedback</h2>
+      <p class="lead">We value your feedback. Please leave comments and a rating.</p>
+
+      <form id="feedbackForm">
+        <div class="two-cols">
+          <div>
+            <label for="fbName">Name *</label>
+            <input id="fbName" required />
+          </div>
+          <div>
+            <label for="rating">Rating (1-5) *</label>
+            <select id="rating" required>
+              <option value="">Select</option>
+              <option>1</option>
+              <option>2</option>
+              <option>3</option>
+              <option>4</option>
+              <option>5</option>
+            </select>
+          </div>
+        </div>
+
+        <div>
+          <label for="comments">Comments *</label>
+          <textarea id="comments" required minlength="10" placeholder="At least 10 characters"></textarea>
+        </div>
+
+        <div class="form-actions">
+          <button class="btn" type="submit">Submit Feedback</button>
+        </div>
+      </form>
+
+      <div id="feedbackList" class="feedback-list"></div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">© <span id="year"></span> Kaveti Ranganatha Timbers — All rights reserved.</div>
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+
+</html>
