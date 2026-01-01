@@ -1,13 +1,13 @@
 :root {
   --accent: #00f2ff;
   /* Cyber Cyan */
-  --bg: #0a0a0c;
+  --bg: #222234;
   /* True Dark */
   --card: #161618;
   /* Elevated Surface */
-  --border: #27272a;
-  --text: #ededed;
-  --muted: #a1a1aa;
+  --border: #fbfb57;
+  --text: #f7f0f0;
+  --muted: #b2b2fd;
   --max-width: 1100px;
   font-family: 'Inter', system-ui, -apple-system, sans-serif;
 }
@@ -30,9 +30,10 @@ body {
   padding: 2rem;
 }
 
+
 /* HEADER & NAV */
 header {
-  background: rgba(10, 10, 12, 0.8);
+  background: rgba(14, 14, 27, 0.8);
   backdrop-filter: blur(10px);
   border-bottom: 1px solid var(--border);
   position: sticky;
@@ -44,20 +45,20 @@ nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  height: 64px;
+  height: 34px;
 }
 
 .logo {
   width: 40px;
   height: 40px;
   border-radius: 6px;
-  box-shadow: 0 0 20px rgba(0, 242, 255, 0.3);
+  box-shadow: 0 0 20px rgba(140, 255, 0, 0.3);
 }
 
 .navlinks a {
   text-decoration: none;
   color: var(--muted);
-  font-size: 14px;
+  font-size: 18px;
   margin-left: 1.5rem;
 }
 
@@ -125,8 +126,8 @@ input:focus {
 }
 
 .btn {
-  background: #fff;
-  color: #000;
+  background: #99fb7e;
+  color: #101010;
   border: none;
   padding: 10px 20px;
   font-weight: 600;
@@ -150,6 +151,7 @@ input:focus {
   border-color: var(--muted);
   background: #1c1c1f;
 }
+.con
 
 /* UTILS */
 .selected-items,

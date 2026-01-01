@@ -3,19 +3,19 @@ const products = [
   {
     id: 1,
     name: 'Teak Plank (per ft)',
-    price: 250,
+    price: 5000,
     image: 'teak.jpg' // Teak Tree
   },
   {
     id: 2,
     name: 'Sal Wood Plank (per ft)',
-    price: 120,
+    price: 320,
     image: 'https://5.imimg.com/data5/SELLER/Default/2021/2/LR/KL/ER/38482797/indian-sal-wood-1000x1000.jpg' // Sal Tree
   },
   {
     id: 3,
     name: 'Rose Wood (per ft)',
-    price: 400,
+    price: 800,
     image: 'https://harshatimbers.com/wp-content/uploads/2025/04/11-17-11-EastIndianRosewood.jpg' // Rosewood Tree
   },
   {
@@ -26,10 +26,23 @@ const products = [
   },
   {
     id: 5,
+    name: 'Mahogany plank ',
+    price: 400,
+    image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSnK4SG1BDBE77OJT8-_HY416_-8LM63q91Dw&s' // Plywood texture
+  },
+   {
+    id: 6,
+    name: 'Silver Wood',
+    price: 350,
+    image: 'https://tiimg.tistatic.com/fp/1/006/259/silver-oak-525.jpg' // Plywood texture
+  },
+  {
+    id: 7,
     name: 'Plywood Sheet (4x8 ft)',
     price: 1500,
     image: 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTup8YMrwyyt2foMltFkri2dT6-EJ3Zn5oVEw&s' // Plywood texture
-  }
+  },
+
 ];
 
 // State
@@ -156,39 +169,54 @@ if (clearBtn) {
   });
 }
 
-// Contact form
 const contactF = document.getElementById('contactForm');
 if (contactF) {
-  contactF.addEventListener('submit', e => {
+  contactF.addEventListener('submit', function (e) {
     e.preventDefault();
+
     const name = document.getElementById('name').value.trim();
     const phone = document.getElementById('phone').value.trim();
     const email = document.getElementById('email').value.trim();
-    if (!name || !phone || !email) { document.getElementById('contactMsg').textContent = 'Please fill required fields.'; return; }
-    if (!/^\d{10}$/.test(phone)) { document.getElementById('contactMsg').textContent = 'Enter a valid 10-digit phone number.'; return; }
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) { document.getElementById('contactMsg').textContent = 'Enter a valid email.'; return; }
-    document.getElementById('contactMsg').textContent = 'Thank you! Your message has been received. We will contact you shortly.';
-    e.target.reset();
-  });
-}
-
-// Feedback form
-const feedbackF = document.getElementById('feedbackForm');
-if (feedbackF) {
-  feedbackF.addEventListener('submit', e => {
-    e.preventDefault();
-    const name = document.getElementById('fbName').value.trim();
+    const message = document.getElementById('message').value.trim();
     const rating = document.getElementById('rating').value;
-    const comments = document.getElementById('comments').value.trim();
-    if (!name || !rating || comments.length < 10) { alert('Please complete all feedback fields. Comments must be at least 10 characters.'); return; }
-    const node = document.createElement('div'); node.className = 'feedback-item';
-    node.innerHTML = `<strong>${escapeHtml(name)}</strong> — Rating: ${escapeHtml(rating)}<div style="margin-top:6px">${escapeHtml(comments)}</div>`;
-    document.getElementById('feedbackList').prepend(node);
-    e.target.reset();
+    const output = document.getElementById('contactMsg');
+
+    if (!name || !phone || !email || !message || !rating) {
+      output.textContent = 'Please fill all required fields.';
+      return;
+    }
+
+    if (!/^\d{10}$/.test(phone)) {
+      output.textContent = 'Enter a valid 10-digit phone number.';
+      return;
+    }
+
+    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+      output.textContent = 'Enter a valid email.';
+      return;
+    }
+
+    let data =
+      "Name: " + name + "\n" +
+      "Email: " + email + "\n" +
+      "Phone: " + phone + "\n" +
+      "Rating: " + rating + "\n" +
+      "Message: " + message + "\n" +
+      "--------------------------\n";
+
+    let file = new Blob([data], { type: "text/plain" });
+    let a = document.createElement("a");
+    a.href = URL.createObjectURL(file);
+    a.download = "feedback.txt";
+    a.click();
+
+    output.textContent = "Message sent successfully!";
+    output.classList.add("success");
+
+    contactF.reset();
   });
 }
 
-// Keyboard shortcut
 document.addEventListener('keydown', e => {
   if (e.key === 'c' && document.getElementById('subtotal')) alert(document.getElementById('subtotal').textContent);
 });

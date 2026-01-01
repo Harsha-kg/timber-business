@@ -123,7 +123,7 @@
 
     <!-- CONTACT -->
     <section id="contact" class="card">
-      <h2>Contact Information</h2>
+      <h2>Feedback Section</h2>
       <p class="lead">Reach out for quotes, bulk orders, or site visits.</p>
 
       <div class="contact-grid">
@@ -148,37 +148,7 @@
             <label for="message">Message</label>
             <textarea id="message"></textarea>
           </div>
-
-          <div class="form-actions">
-            <button class="btn" type="submit">Send Message</button>
-            <div id="contactMsg" class="muted"></div>
-          </div>
-        </form>
-
-        <aside class="contact-aside">
-          <div class="visit"><strong>Visit Us</strong>
-            <div class="muted small">Kaveti Ranganatha Timbers, B M road, Kadabhalli, Mandya(d) PIN 571448</div>
-          </div>
-
-          <div class="muted small"><strong>Phone:</strong> +91
-            7795536075<br /><strong>Email:</strong>gowdaharsha198@gmail.com</div>
-
-          <div class="map-placeholder">Map placeholder (embed Google Maps in production)</div>
-        </aside>
-      </div>
-    </section>
-
-    <!-- FEEDBACK -->
-    <section id="feedback" class="card">
-      <h2>Feedback</h2>
-      <p class="lead">We value your feedback. Please leave comments and a rating.</p>
-
-      <form id="feedbackForm">
-        <div class="two-cols">
-          <div>
-            <label for="fbName">Name *</label>
-            <input id="fbName" required />
-          </div>
+          
           <div>
             <label for="rating">Rating (1-5) *</label>
             <select id="rating" required>
@@ -190,19 +160,25 @@
               <option>5</option>
             </select>
           </div>
-        </div>
 
-        <div>
-          <label for="comments">Comments *</label>
-          <textarea id="comments" required minlength="10" placeholder="At least 10 characters"></textarea>
-        </div>
+          <div class="form-actions">
+            <button class="btn" type="submit">Send Message</button>
+            <div id="contactMsg" class="muted"></div>
+          </div>
+        </form>
 
-        <div class="form-actions">
-          <button class="btn" type="submit">Submit Feedback</button>
-        </div>
-      </form>
+        <aside class="contact-aside">
+             <h2>Contact</h2>
+          <div class="visit"><strong>Visit Us</strong>
+            <div class="muted small">Kaveti Ranganatha Timbers, B M road, Kadabhalli, Mandya(d) PIN 571448</div>
+          </div>
 
-      <div id="feedbackList" class="feedback-list"></div>
+          <div class="muted small"><strong>Phone:</strong> +91
+            7795536075<br /><strong>Email:</strong>gowdaharsha198@gmail.com</div>
+
+          <div class="map-placeholder">Map placeholder (embed Google Maps in production)</div>
+        </aside>
+      </div>
     </section>
 
   </main>
