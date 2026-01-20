@@ -169,6 +169,8 @@ if (clearBtn) {
   });
 }
 
+let allFeedback = "";   // stores previous feedback
+
 const contactF = document.getElementById('contactForm');
 if (contactF) {
   contactF.addEventListener('submit', function (e) {
@@ -186,17 +188,18 @@ if (contactF) {
       return;
     }
 
-    if (!/^\d{10}$/.test(phone)) {
+    if (!/^[6-9]\d{9}$/.test(phone)) {
       output.textContent = 'Enter a valid 10-digit phone number.';
       return;
     }
 
-    if (!/^[^@\s]+@[^@\s]+\.[^@\s]+$/.test(email)) {
+    if (!email.includes("@") || !email.includes(".")) {
       output.textContent = 'Enter a valid email.';
       return;
     }
 
-    let data =
+    // APPEND feedback
+    allFeedback +=
       "Name: " + name + "\n" +
       "Email: " + email + "\n" +
       "Phone: " + phone + "\n" +
@@ -204,24 +207,15 @@ if (contactF) {
       "Message: " + message + "\n" +
       "--------------------------\n";
 
-    let file = new Blob([data], { type: "text/plain" });
-    let a = document.createElement("a");
+    const file = new Blob([allFeedback], { type: "text/plain" });
+    const a = document.createElement("a");
     a.href = URL.createObjectURL(file);
     a.download = "feedback.txt";
     a.click();
 
-    output.textContent = "Message sent successfully!";
+    output.textContent = "Feedback saved successfully!";
     output.classList.add("success");
 
     contactF.reset();
   });
 }
-
-document.addEventListener('keydown', e => {
-  if (e.key === 'c' && document.getElementById('subtotal')) alert(document.getElementById('subtotal').textContent);
-});
-
-// Init
-updateUI();
-const yearEl = document.getElementById('year');
-if (yearEl) yearEl.textContent = new Date().getFullYear();
